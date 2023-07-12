@@ -17,12 +17,16 @@
     <label>First Name</label>
     <input type="text" v-model="firstName" />
 
+    <label>Middle Name</label>
+    <input type="text" @keyup.enter="updateMiddleName" />
+
     <label>Last Name</label>
     <!-- :value is short-form for v-model -->
     <input type="text" :value="lastName" @input.prevent="updateLastName('Last name event triggered!', $event)"/>
 
     <!-- @ symbol is short-form for v-on -->
     <button type="button" @click="increment">Increment</button>
+    <!-- @click.meta will need user to click command for macOS in order to decrement -->
     <button type="button" @click="age--">Decrement</button>
   </div>
 
