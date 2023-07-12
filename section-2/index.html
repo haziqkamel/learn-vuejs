@@ -49,6 +49,20 @@
       :style="[{ width: size + 'px', height: size + 'px', lineHeight: size + 'px' }, { transform: 'rotate(30deg)' }]">
       Hi!
     </div>
+    <ul>
+      <!-- for bird in birds build ... -->
+      <li v-for="(bird, index) in birds" :class="bird" :key="bird">
+        {{ bird }} - {{ index }}
+      </li>
+    </ul>
+
+    <hr />
+
+    <ul>
+      <li v-for="person in people">
+        <div v-for=" (value, key, index) in person">{{ key }}: {{value}}</div>
+      </li>
+    </ul>
   </div>
 
   <div id="app2">
@@ -58,6 +72,8 @@
       <h3>v-else-if</h3>
     </template>
     <p v-else>v-else</p>
+
+    <i v-show="mode == 1">v-show</i>
 
     <select v-model="mode">
       <option value="1">v-if</option>
