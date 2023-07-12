@@ -47,3 +47,11 @@ const vm = Vue.createApp({
 setTimeout(() => {
   vm.firstName = "Bob";
 }, 2000);
+
+let vm2 = Vue.createApp({
+  data() {
+    return {
+      mode: 1,
+    }
+  }
+}).mount("#app2")
