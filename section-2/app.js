@@ -7,6 +7,8 @@ const vm = Vue.createApp({
       url: "https://google.com",
       raw_url: '<a href="https://google.com" target="_blank">Google</a>',
       age: 20,
+      isPurple: false,
+      selectedColor: "",
     };
   },
   methods: {
@@ -20,6 +22,7 @@ const vm = Vue.createApp({
     updateMiddleName(event) {
       this.middleName = event.target.value;
     },
+
   },
   computed: {
     fullName() {
@@ -27,6 +30,9 @@ const vm = Vue.createApp({
         this.middleName
       } ${this.lastName.toUpperCase()}`;
     },
+    circle_classes() {
+      return { purple: this.isPurple }
+    }
   },
   watch: {
     age(newVal, oldVal) {

@@ -31,6 +31,20 @@
     <button type="button" @click="increment">Increment</button>
     <!-- @click.meta will need user to click command for macOS in order to decrement -->
     <button type="button" @click="age--">Decrement</button>
+
+    <label>
+      <input type="checkbox" v-model="isPurple"/> Purple
+    </label>
+
+    <select v-model="selectedColor">
+      <option value="">White</option>
+      <option value="text-black">Black</option>
+      <option value="text-orange">Orange</option>
+    </select>
+  
+    <div class="circle" :class="[selectedColor, circle_classes]">
+      Hi!
+    </div>
   </div>
 
   <script src="https://unpkg.com/vue@next"></script>
