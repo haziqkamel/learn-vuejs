@@ -11,13 +11,19 @@
     <p>{{ fullName() }}</p>
     <p><a :href="url" target="_blank">Google</a></p>
     <p v-html="raw_url"></p>
+    <p>{{ age }}</p>
     <hr />
 
     <label>First Name</label>
-    <input type="text" v-model="firstName"/>
+    <input type="text" v-model="firstName" />
 
     <label>Last Name</label>
-    <input type="text" v-model="lastName"/>
+    <!-- :value is short-form for v-model -->
+    <input type="text" :value="lastName" @input="updateLastName"/>
+
+    <!-- @ symbol is short-form for v-on -->
+    <button type="button" @click="increment">Increment</button>
+    <button type="button" @click="age--">Decrement</button>
   </div>
 
   <script src="https://unpkg.com/vue@next"></script>
