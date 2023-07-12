@@ -9,6 +9,7 @@ const vm = Vue.createApp({
       age: 20,
       isPurple: false,
       selectedColor: "",
+      size: 150,
     };
   },
   methods: {

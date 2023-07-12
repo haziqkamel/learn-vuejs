@@ -22,10 +22,11 @@
 
     <label>Last Name</label>
     <!-- :value is short-form for v-model -->
-    <input type="text" :value.lazy.trim="lastName" @input.prevent="updateLastName('Last name event triggered!', $event)"/>
+    <input type="text" :value.lazy.trim="lastName"
+      @input.prevent="updateLastName('Last name event triggered!', $event)" />
 
     <label>Age</label>
-    <input type="number" v-model.number="age"/>
+    <input type="number" v-model.number="age" />
 
     <!-- @ symbol is short-form for v-on -->
     <button type="button" @click="increment">Increment</button>
@@ -33,7 +34,7 @@
     <button type="button" @click="age--">Decrement</button>
 
     <label>
-      <input type="checkbox" v-model="isPurple"/> Purple
+      <input type="checkbox" v-model="isPurple" /> Purple
     </label>
 
     <select v-model="selectedColor">
@@ -41,8 +42,11 @@
       <option value="text-black">Black</option>
       <option value="text-orange">Orange</option>
     </select>
-  
-    <div class="circle" :class="[selectedColor, circle_classes]">
+
+    <input type="number" v-model="size" />
+
+    <div class="circle" :class="[selectedColor, circle_classes]"
+      :style="[{ width: size + 'px', height: size + 'px', lineHeight: size + 'px' }, { transform: 'rotate(30deg)' }]">
       Hi!
     </div>
   </div>
