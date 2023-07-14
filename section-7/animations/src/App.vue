@@ -3,15 +3,26 @@
   <button type="button" @click="flag = !flag">Toggle Show</button>
 
   <!-- Animation -->
-  <transition name="fade" mode="out-in">
+  <!-- <transition name="fade" mode="out-in">
     <h2 v-if="flag" key="main">Hello World!</h2>
     <h2 v-else key="secondary">Another hello</h2>
-  </transition>
+  </transition> -->
 
   <!-- type: animation / transition -->
-  <transition name="zoom" type="animation" appear>
+  <!-- <transition name="zoom" type="animation" appear>
     <h2 v-if="flag">Chloe</h2>
     <h2 v-else>Cleo</h2>
+  </transition> -->
+
+  <!-- Animate with javascript -->
+  <transition 
+  @before-enter="beforeEnter" 
+  @enter="enter" 
+  @after-enter="afterEnter" 
+  @before-leave="beforeLeave"
+  @leave="leave" 
+  @after-leave="afterLeave" :css="false">
+    <h2 v-if="flag">Hey</h2>
   </transition>
 
 </template>
@@ -22,6 +33,34 @@ export default {
   data() {
     return {
       flag: false,
+    }
+  },
+  methods: {
+    beforeEnter(e) {
+      
+    },
+    enter(e, done) {
+    const animation =  e.animate([{ transform: "scale3d(0,0,0)"}, {}], {duration: 1000});
+    
+    animation.onFinish = () => {
+      done();
+    };
+    },
+    afterEnter(e) {
+
+    },
+    beforeLeave(e) {
+
+    }, 
+    leave(e, done) {
+      const animation =  e.animate([{}, {transform: "scale3d(0,0,0)"}], {duration: 1000});
+    
+    animation.onFinish = () => {
+      done();
+    };
+    },
+    afterLeave(e) {
+
     }
   }
 }
